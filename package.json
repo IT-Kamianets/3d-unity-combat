@@ -1,0 +1,12 @@
+{
+  "name": "com.itkamianets.3d-unity-combat",
+  "version": "0.2.0",
+  "displayName": "Unity Combat",
+  "description": "Generic combat for games: health with damage and death events, teams, and melee cone and area attacks that find and hurt targets. No classes, spells, loot or UI.",
+  "unity": "6000.6",
+  "dependencies": {
+    "com.unity.modules.physics": "1.0.0"
+  },
+  "keywords": ["combat", "health", "damage", "engine"],
+  "author": { "name": "IT Kamianets" }
+}
