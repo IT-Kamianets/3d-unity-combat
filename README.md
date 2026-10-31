@@ -13,7 +13,7 @@ Not here: classes, spells, weapons, loot, experience, UI, networking. Those are 
 
 ### Status
 
-v0.2: `Health`, `DamageInfo`, `DamageOutcome`, `IDamageable`, `CombatQueries`, `Projectile`, with edit-mode tests. Used by Temnorid Dungeons, Conquest and Arena.
+v0.2: `Health`, `DamageInfo`, `DamageOutcome`, `IDamageable`, `CombatQueries`, `Projectile`, with edit-mode tests. Used by Temnorid Arena, Caravan Guard, Conquest, Dungeons and Legends; the other games have it because `3d-unity-feedback` depends on it.
 
 ### Roadmap
 
