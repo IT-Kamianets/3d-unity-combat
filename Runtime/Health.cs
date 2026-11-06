@@ -77,6 +77,9 @@ namespace ITKamianets.Engine.Combat
 			}
 		}
 
+		/// <summary>Scales every hit this takes: 1 normally, 0.4 while a shield takes 60% off, 1.5 for a curse. The game sets it; the engine only applies it.</summary>
+		public float DamageTaken { get; set; } = 1f;
+
 		public bool IsAlive => Current > 0f;
 
 		/// <summary>0 to 1, for a health bar.</summary>
@@ -102,13 +105,17 @@ namespace ITKamianets.Engine.Combat
 			EnsureStarted();
 			if (_current <= 0f || info.Amount <= 0f) return DamageOutcome.Ignored;
 
-			_current = Mathf.Max(0f, _current - info.Amount);
+			var hit = info;
+			hit.Amount = info.Amount * Mathf.Max(0f, DamageTaken);
+			if (hit.Amount <= 0f) return DamageOutcome.Ignored;
+
+			_current = Mathf.Max(0f, _current - hit.Amount);
 			if (_current <= 0f)
 			{
-				Died?.Invoke(this, info);
+				Died?.Invoke(this, hit);
 				return DamageOutcome.Killed;
 			}
-			Damaged?.Invoke(this, info);
+			Damaged?.Invoke(this, hit);
 			return DamageOutcome.Damaged;
 		}
 
